@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unicode伪字体转换器</title>
+  <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+<body>
+<div style="display:block;width:100%;color:var(--text-primary);font-family:ui-sans-serif,system-ui;">
+  <!-- 网站标题 -->
+  <div style="text-align:center;margin-bottom:24px;">
+    <h1 style="font-size:28px;font-weight:600;margin-bottom:8px;">Unicode伪字体转换器</h1>
+    <p style="color:var(--text-secondary);font-size:14px;">输入英文字母，实时转换为Unicode特殊符号</p>
+  </div>
+  
+  <!-- 主要内容区域 -->
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:24px;">
+    <!-- 左侧输入区域 -->
+    <div style="background:var(--card-bg);border:.5px solid var(--intensity-8);border-radius:var(--radius-xl);padding:20px;">
+      <h2 style="font-size:18px;font-weight:500;margin-bottom:16px;">输入区域</h2>
+      
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-size:13px;color:var(--text-secondary);margin-bottom:8px;">
+          输入英文字母
+        </label>
+        <input 
+          id="textInput" 
+          type="text" 
+          placeholder="输入英文字母，如：Hello World" 
+          autocomplete="off" 
+          style="width:100%;height:40px;border:.5px solid var(--intensity-8);border-radius:var(--radius-md);background:var(--intensity-4);color:var(--text-primary);padding:0 12px;font-size:14px;outline:none;transition:border-color .15s;"
+        >
+        <div style="font-size:12px;color:var(--text-tertiary);margin-top:6px;">
+          支持大小写字母，非字母字符将保持原样
+        </div>
+      </div>
+    </div>
+    
+    <!-- 右侧卡片区域 -->
+    <div>
+      <h2 style="font-size:18px;font-weight:500;margin-bottom:16px;">转换效果</h2>
+      
+      <!-- 卡片容器 -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+        
+        <!-- 卡片1：小型大写字母转换 -->
+        <div style="background:var(--card-bg);border:.5px solid var(--intensity-8);border-radius:var(--radius-xl);padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 style="font-size:16px;font-weight:500;">小型大写字母</h3>
+            <span style="font-size:11px;color:var(--text-tertiary);background:var(--intensity-4);padding:2px 8px;border-radius:10px;">样式1</span>
+          </div>
+          
+          <div style="margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换映射：</div>
+            <div style="font-size:13px;color:var(--text-tertiary);line-height:1.5;font-family:'Segoe UI',system-ui;">
+              ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀѕᴛᴜᴠᴡᴢʏᴢ
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">输入文本：</div>
+            <div id="inputPreview1" style="font-size:14px;color:var(--text-primary);word-break:break-all;min-height:20px;">
+              等待输入...
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div id="result1" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
+              等待转换...
+            </div>
+          </div>
+        </div>
+        
+        <!-- 卡片2-3：手写体 -->
+        <div style="background:var(--card-bg);border:.5px solid var(--intensity-8);border-radius:var(--radius-xl);padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 style="font-size:16px;font-weight:500;">手写体</h3>
+            <span style="font-size:11px;color:var(--text-tertiary);background:var(--intensity-4);padding:2px 8px;border-radius:10px;">样式2</span>
+          </div>
+          
+          <div style="margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换映射：</div>
+            <div style="font-size:10px;color:var(--text-tertiary);line-height:1.5;font-family:'Segoe UI',system-ui;">
+              𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">输入文本：</div>
+            <div id="inputPreview2" style="font-size:14px;color:var(--text-primary);word-break:break-all;min-height:20px;">
+              等待输入...
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div id="result2" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
+              等待转换...
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--card-bg);border:.5px solid var(--intensity-8);border-radius:var(--radius-xl);padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 style="font-size:16px;font-weight:500;">手写体-小写</h3>
+            <span style="font-size:11px;color:var(--text-tertiary);background:var(--intensity-4);padding:2px 8px;border-radius:10px;">样式2-小写</span>
+          </div>
+          
+          <div style="margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换映射：</div>
+            <div style="font-size:13px;color:var(--text-tertiary);line-height:1.5;font-family:'Segoe UI',system-ui;">
+              𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">输入文本：</div>
+            <div id="inputPreview5" style="font-size:14px;color:var(--text-primary);word-break:break-all;min-height:20px;">
+              等待输入...
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div id="result5" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
+              等待转换...
+            </div>
+          </div>
+        </div>
+        
+        <!-- 卡片4-5：哥特体 -->
+        <div style="background:var(--card-bg);border:.5px solid var(--intensity-8);border-radius:var(--radius-xl);padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 style="font-size:16px;font-weight:500;">哥特体</h3>
+            <span style="font-size:11px;color:var(--text-tertiary);background:var(--intensity-4);padding:2px 8px;border-radius:10px;">样式3</span>
+          </div>
+          
+          <div style="margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换映射：</div>
+            <div style="font-size:10px;color:var(--text-tertiary);line-height:1.5;font-family:'Segoe UI',system-ui;">
+              𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">输入文本：</div>
+            <div id="inputPreview3" style="font-size:14px;color:var(--text-primary);word-break:break-all;min-height:20px;">
+              等待输入...
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div id="result3" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
+              等待转换...
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--card-bg);border:.5px solid var(--intensity-8);border-radius:var(--radius-xl);padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 style="font-size:16px;font-weight:500;">哥特体-小写</h3>
+            <span style="font-size:11px;color:var(--text-tertiary);background:var(--intensity-4);padding:2px 8px;border-radius:10px;">样式3-小写</span>
+          </div>
+          
+          <div style="margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换映射：</div>
+            <div style="font-size:13px;color:var(--text-tertiary);line-height:1.5;font-family:'Segoe UI',system-ui;">
+              𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">输入文本：</div>
+            <div id="inputPreview6" style="font-size:14px;color:var(--text-primary);word-break:break-all;min-height:20px;">
+              等待输入...
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div id="result6" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
+              等待转换...
+            </div>
+          </div>
+        </div>
+
+        <!--卡片6-7: 双线体-->
+        <div style="background:var(--card-bg);border:.5px solid var(--intensity-8);border-radius:var(--radius-xl);padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 style="font-size:16px;font-weight:500;">双线体</h3>
+            <span style="font-size:11px;color:var(--text-tertiary);background:var(--intensity-4);padding:2px 8px;border-radius:10px;">样式4</span>
+          </div>
+          
+          <div style="margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换映射：</div>
+            <div style="font-size:10px;color:var(--text-tertiary);line-height:1.5;font-family:'Segoe UI',system-ui;">
+              𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">输入文本：</div>
+            <div id="inputPreview4" style="font-size:14px;color:var(--text-primary);word-break:break-all;min-height:20px;">
+              等待输入...
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div id="result4" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
+              等待转换...
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--card-bg);border:.5px solid var(--intensity-8);border-radius:var(--radius-xl);padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 style="font-size:16px;font-weight:500;">双线体-小写</h3>
+            <span style="font-size:11px;color:var(--text-tertiary);background:var(--intensity-4);padding:2px 8px;border-radius:10px;">样式4-小写</span>
+          </div>
+          
+          <div style="margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换映射：</div>
+            <div style="font-size:13px;color:var(--text-tertiary);line-height:1.5;font-family:'Segoe UI',system-ui;">
+              𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">输入文本：</div>
+            <div id="inputPreview7" style="font-size:14px;color:var(--text-primary);word-break:break-all;min-height:20px;">
+              等待输入...
+            </div>
+          </div>
+          
+          <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
+            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div id="result7" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
+              等待转换...
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="Core.js"></script>
+<script data-tabbit-widget-diagnostics="true" src="Data.js"></script>
+</body>
+</html>
