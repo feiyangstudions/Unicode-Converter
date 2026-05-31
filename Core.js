@@ -1,7 +1,9 @@
 // Core.js - 修复后的完整代码
 
+const converPlaceHolder = "\u200C等待转换..."
+
 // Unicode小型大写字母映射表
-const smallCapsMapping = "ᴀ,ʙ,ᴄ,ᴅ,ᴇ,ꜰ,ɢ,ʜ,ɪ,ᴊ,ᴋ,ʟ,ᴍ,ɴ,ᴏ,ᴘ,ǫ,ʀ,ѕ,ᴛ,ᴜ,ᴠ,ᴡ,ᴢ,ʏ,ᴢ";
+const smallCapsMapping = "ᴀ,ʙ,ᴄ,ᴅ,ᴇ,ꜰ,ɢ,ʜ,ɪ,ᴊ,ᴋ,ʟ,ᴍ,ɴ,ᴏ,ᴘ,ǫ,ʀ,ѕ,ᴛ,ᴜ,ᴠ,ᴡ,х,ʏ,ᴢ";
 // Unicode手写体映射表
 const handwritingMapping = "𝒜,ℬ,𝒞,𝒟,ℰ,ℱ,𝒢,ℋ,ℐ,𝒥,𝒦,ℒ,ℳ,𝒩,𝒪,𝒫,𝒬,ℛ,𝒮,𝒯,𝒰,𝒱,𝒲,𝒳,𝒴,𝒵";
 const handwritingMappingSmall = "𝒶,𝒷,𝒸,𝒹,ℯ,𝒻,ℊ,𝒽,𝒾,𝒿,𝓀,𝓁,𝓂,𝓃,ℴ,𝓅,𝓆,𝓇,𝓈,𝓉,𝓊,𝓋,𝓌,𝓍,𝓎,𝓏"
@@ -89,7 +91,7 @@ function updateSingleConversion(inputPreview, resultElement, map) {
   
   // 如果输入为空，显示提示
   if (!inputText) {
-    resultElement.textContent = '等待转换...';
+    resultElement.textContent = converPlaceHolder;
     return;
   }
   
@@ -139,15 +141,39 @@ textInput.addEventListener('input', function() {
     result7.textContent = convertTextToUnicode(inputText, unicodeMap3_1);
 
   } else {
-    result1.textContent = '等待转换...';
-    result2.textContent = '等待转换...';
-    result3.textContent = '等待转换...';
-    result4.textContent = '等待转换...';
-    result5.textContent = '等待转换...';
-    result6.textContent = '等待转换...';
-    result7.textContent = '等待转换...';
+    result1.textContent = converPlaceHolder;
+    result2.textContent = converPlaceHolder;
+    result3.textContent = converPlaceHolder;
+    result4.textContent = converPlaceHolder;
+    result5.textContent = converPlaceHolder;
+    result6.textContent = converPlaceHolder;
+    result7.textContent = converPlaceHolder;
   }
 });
+
+function copyDivText(divId) {
+  // 获取div元素及其文本内容
+  const divElement = document.getElementById(divId);
+  const textToCopy = divElement.textContent || divElement.innerText;
+
+  if(textToCopy == converPlaceHolder) {
+    alert('您还没有输入转换文本！')
+    return
+  }
+
+  // 使用现代 Clipboard API
+  navigator.clipboard.writeText(textToCopy)
+    .then(() => {
+      console.log('文本已成功复制到剪贴板: ', textToCopy);
+      // 可以在这里添加用户提示，例如显示“复制成功”的弹窗
+      alert('文本已复制！');
+    })
+    .catch(err => {
+      console.error('复制失败: ', err);
+      // 如果现代API失败，可以回退到旧方法
+      fallbackCopyText(textToCopy);
+    });
+}
 
 // 初始化显示
 updateAllConversions();

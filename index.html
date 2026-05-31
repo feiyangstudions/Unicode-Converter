@@ -32,14 +32,14 @@
           style="width:100%;height:40px;border:.5px solid var(--intensity-8);border-radius:var(--radius-md);background:var(--intensity-4);color:var(--text-primary);padding:0 12px;font-size:14px;outline:none;transition:border-color .15s;"
         >
         <div style="font-size:12px;color:var(--text-tertiary);margin-top:6px;">
-          支持大小写字母，非字母字符将保持原样
+          忽略大小写，非英文字母字符将保持原样
         </div>
       </div>
     </div>
     
     <!-- 右侧卡片区域 -->
     <div>
-      <h2 style="font-size:18px;font-weight:500;margin-bottom:16px;">转换效果</h2>
+      <h2 style="font-size:18px;font-weight:500;margin-bottom:16px;">转换区域</h2>
       
       <!-- 卡片容器 -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
@@ -66,9 +66,12 @@
           </div>
           
           <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
-            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div class="lateral" >
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+              <button class="copy-button" onclick="copyDivText('result1')">复制</button>
+            </div>
             <div id="result1" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
-              等待转换...
+              &#x200C;等待转换...
             </div>
           </div>
         </div>
@@ -95,9 +98,12 @@
           </div>
           
           <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
-            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div class="lateral" >
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+              <button class="copy-button" onclick="copyDivText('result2')">复制</button>
+            </div>
             <div id="result2" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
-              等待转换...
+              &#x200C;等待转换...
             </div>
           </div>
         </div>
@@ -123,9 +129,12 @@
           </div>
           
           <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
-            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div class="lateral" >
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+              <button class="copy-button" onclick="copyDivText('result5')">复制</button>
+            </div>
             <div id="result5" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
-              等待转换...
+              &#x200C;等待转换...
             </div>
           </div>
         </div>
@@ -152,9 +161,12 @@
           </div>
           
           <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
-            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div class="lateral" >
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+              <button class="copy-button" onclick="copyDivText('result3')">复制</button>
+            </div>
             <div id="result3" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
-              等待转换...
+              &#x200C;等待转换...
             </div>
           </div>
         </div>
@@ -180,9 +192,12 @@
           </div>
           
           <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
-            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div class="lateral" >
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+              <button class="copy-button" onclick="copyDivText('result6')">复制</button>
+            </div>
             <div id="result6" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
-              等待转换...
+              &#x200C;等待转换...
             </div>
           </div>
         </div>
@@ -209,9 +224,12 @@
           </div>
           
           <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
-            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div class="lateral" >
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+              <button class="copy-button" onclick="copyDivText('result4')">复制</button>
+            </div>
             <div id="result4" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
-              等待转换...
+              &#x200C;等待转换...
             </div>
           </div>
         </div>
@@ -237,9 +255,12 @@
           </div>
           
           <div style="background:var(--intensity-4);border-radius:var(--radius-md);padding:16px;">
-            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+            <div class="lateral" >
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">转换结果：</div>
+              <button class="copy-button" onclick="copyDivText('result7')">复制</button>
+            </div>
             <div id="result7" style="font-size:14px;font-weight:500;color:var(--text-primary);word-break:break-all;min-height:24px;font-family:'Segoe UI',system-ui;">
-              等待转换...
+              &#x200C;等待转换...
             </div>
           </div>
         </div>

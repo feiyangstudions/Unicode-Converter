@@ -18,10 +18,19 @@ font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",
 --intensity-3:rgba(255,255,255,.03);--intensity-4:rgba(255,255,255,.04);
 --intensity-6:rgba(255,255,255,.06);--intensity-8:rgba(255,255,255,.08);
 --intensity-12:rgba(255,255,255,.12);--intensity-16:rgba(255,255,255,.16);
---intensity-20:rgba(255,255,255,.2);--intensity-35:rgba(255,255,255,.35);
+--intensity-20:rgba(255,255,255,.2);--intensity-35:rgba(255,255,255,.35);display: flex;
 --intensity-60:rgba(255,255,255,.6);--input-shadow:rgba(0,0,0,.28)
 }
 }
 *{box-sizing:border-box}
 button,a,[role=button],select,input[type=range]{cursor:pointer}
 button:disabled{cursor:not-allowed;opacity:.55}
+.copy-button {
+    background-color: rgba(200, 200, 200, 0.5);
+    border: 2px solid #BABABA;
+    border-radius: 5px;
+    margin-left: auto;
+}
+.lateral {
+    display: flex;
+}
