@@ -11,14 +11,25 @@ font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",
 }
 @media (prefers-color-scheme:dark){
 :root{
---background:#232324;--panel-bg:#332D28;--card-bg:#2E2E2E;--tooltip-bg:#BABABA;
---primary-foreground:#000;--text-primary:rgba(255,255,255,.8);--text-secondary:rgba(255,255,255,.5);
---text-tertiary:rgba(255,255,255,.35);--intensity-0:rgba(255,255,255,0);
---intensity-3:rgba(255,255,255,.03);--intensity-4:rgba(255,255,255,.04);
---intensity-6:rgba(255,255,255,.06);--intensity-8:rgba(255,255,255,.08);
---intensity-12:rgba(255,255,255,.12);--intensity-16:rgba(255,255,255,.16);
---intensity-20:rgba(255,255,255,.2);--intensity-35:rgba(255,255,255,.35);display: flex;
---intensity-60:rgba(255,255,255,.6);--input-shadow:rgba(0,0,0,.28)
+    --background:#232324;
+    --panel-bg:#332D28;
+    --card-bg:#2E2E2E;
+    --tooltip-bg:#BABABA;
+    --primary-foreground:#000;--text-primary:rgba(255,255,255,.8);
+    --text-secondary:rgba(255,255,255,.5);
+    --text-tertiary:rgba(255,255,255,.35);
+    --intensity-0:rgba(255,255,255,0);
+    --intensity-3:rgba(255,255,255,.03);
+    --intensity-4:rgba(255,255,255,.04);
+    --intensity-6:rgba(255,255,255,.06);
+    --intensity-8:rgba(255,255,255,.08);
+    --intensity-12:rgba(255,255,255,.12);
+    --intensity-16:rgba(255,255,255,.16);
+    --intensity-20:rgba(255,255,255,.2);
+    --intensity-35:rgba(255,255,255,.35);
+    display: flex;
+    --intensity-60:rgba(255,255,255,.6);
+    --input-shadow:rgba(0,0,0,.28)
 }
 }
 *{box-sizing:border-box}
@@ -57,4 +68,27 @@ button:disabled{cursor:not-allowed;opacity:.55}
 .copy-button:hover{
     background-color: #c8c8c8;
     transition: 0.5s ease;
+}
+.card-root {
+    background:var(--card-bg);
+    border:.5px solid var(--intensity-8);
+    border-radius:var(--radius-xl);
+    padding:20px;
+}
+.card-top {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:16px;
+}
+.gray {
+    color: darkgray;
+}
+.superlink {
+    color: #0052d9;
+    font-size: small;
+    text-decoration: none;
+}
+.superlink:hover {
+    text-decoration: underline;
 }
