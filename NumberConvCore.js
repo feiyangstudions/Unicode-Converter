@@ -34,7 +34,7 @@ const textInput = document.getElementById('textInput');
 const inputPreview1 = document.getElementById('inputPreview1');
 const result1 = document.getElementById('result1');
 const inputPreview2 = document.getElementById('inputPreview2');
-const result2 = document.getElementById("result2");
+const result2_1 = document.getElementById("result2_1");
 const inputPreview3 = document.getElementById('inputPreview3');
 const result3 = document.getElementById("result3");
 
@@ -91,25 +91,7 @@ textInput.addEventListener('keyup', function(event) {
 });
 
 // 输入时实时更新所有预览和转换结果
-textInput.addEventListener('input', function() {
-  const inputText = textInput.value;
-  // 更新所有预览
-  inputPreview1.textContent = inputText || '等待输入...';
-  inputPreview2.textContent = inputText || '等待输入...';
-  inputPreview3.textContent = inputText || '等待输入...';
-  
-  // 实时转换所有样式
-  if (inputText) {
-    result1.textContent = convertTextToUnicode(inputText, unicodeMap);
-    result2.textContent = convertTextToUnicode(inputText, unicodeMap1);
-    result3.textContent = convertTextToUnicode(inputText, unicodeMap2);
-
-  } else {
-    result1.textContent = converPlaceHolder;
-    result2.textContent = converPlaceHolder;
-    result3.textContent = converPlaceHolder;
-  }
-});
+textInput.addEventListener('input', updateAllConversions);
 
 function copyDivText(divId) {
   // 获取div元素及其文本内容
@@ -135,8 +117,3 @@ function copyDivText(divId) {
 
 // 初始化显示
 updateAllConversions();
-
-// 调试信息：显示映射表内容
-console.log('Unicode映射表已创建：', unicodeMap);
-console.log('原始映射字符串：', smallCapsMapping);
-console.log('所有映射表已初始化完成');
